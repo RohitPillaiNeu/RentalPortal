@@ -1,5 +1,6 @@
 package com.portal.RentalApp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,10 +15,21 @@ import com.portal.RentalApp.pojo.User;
 
 @RestController
 public class LoginController {
+
+	@Autowired
+	UserDAO userDAO;
 	
 	@GetMapping("/login")
 	public ModelAndView handleGet(HttpServletRequest request) {
 //		UserDAO userdao = new UserDAO();
+//		User user = new User();
+//        user.setAdmin(true);
+//        user.setName("User2");
+//        user.setUserName("user@2");
+//        user.setUserPassword("user@2");
+//        
+//        userdao.saveUser(user);
+		
 		return new ModelAndView("login");
 	}
 	
@@ -37,15 +49,22 @@ public class LoginController {
         
 //        request.getSession().setAttribute("user", user); 
 //		return "AdminHome-view.jsp";
+
+		String userName  = (String) request.getParameter("userName");
+		String password = (String) request.getParameter("userPassword");
+		User checkUser = userDAO.getUser(userName);
 		
-//		if(true) {
-//			String id  = (String) request.getParameter("userName");
-//			String password = (String) request.getParameter("userPassword");
-//	        request.setAttribute("userid", id);
-//	        
-//	        request.setAttribute("error", true);
-//			return new ModelAndView("login");
-//		}
-		return new ModelAndView("redirect:/home");
+		if(checkUser != null && checkUser.getUserPassword().equals(password)) {
+	        request.setAttribute("userid", checkUser.getUserId());
+	        request.setAttribute("name", checkUser.getName());
+	        request.setAttribute("username", checkUser.getUserName());
+	        request.setAttribute("password", checkUser.getUserPassword());
+	        request.setAttribute("admin", checkUser.isAdmin());
+	        
+	        request.setAttribute("error", true);
+			return new ModelAndView("login");
+		}
+//		return new ModelAndView("redirect:/home");
+		return new ModelAndView("login");
 	}
 }
