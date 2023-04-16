@@ -29,7 +29,7 @@ public class LoginController {
 //        user.setUserPassword("user@2");
 //        
 //        userdao.saveUser(user);
-		
+		request.getSession().invalidate();
 		return new ModelAndView("login");
 	}
 	
@@ -55,16 +55,18 @@ public class LoginController {
 		User checkUser = userDAO.getUser(userName);
 		
 		if(checkUser != null && checkUser.getUserPassword().equals(password)) {
-	        request.setAttribute("userid", checkUser.getUserId());
-	        request.setAttribute("name", checkUser.getName());
-	        request.setAttribute("username", checkUser.getUserName());
-	        request.setAttribute("password", checkUser.getUserPassword());
-	        request.setAttribute("admin", checkUser.isAdmin());
-	        
+//	        request.setAttribute("userid", checkUser.getUserId());
+//	        request.setAttribute("name", checkUser.getName());
+//	        request.setAttribute("username", checkUser.getUserName());
+//	        request.setAttribute("password", checkUser.getUserPassword());
+//	        request.setAttribute("admin", checkUser.isAdmin());
+			
+			request.getSession().setAttribute("loggedUser", userName);
+			return new ModelAndView("redirect:/home");
+		}
+		else {
 	        request.setAttribute("error", true);
 			return new ModelAndView("login");
 		}
-//		return new ModelAndView("redirect:/home");
-		return new ModelAndView("login");
 	}
 }

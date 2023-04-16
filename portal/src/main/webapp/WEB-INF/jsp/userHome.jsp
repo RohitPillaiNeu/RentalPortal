@@ -17,6 +17,6 @@
 </head>
 <body>
 
-	user view
+	user view - ${requestScope.userName}
 </body>
 </html>

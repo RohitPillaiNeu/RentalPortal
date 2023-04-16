@@ -17,6 +17,6 @@
 </head>
 <body>
 
-	admin view
+	admin view - ${requestScope.userName}
 </body>
 </html>
