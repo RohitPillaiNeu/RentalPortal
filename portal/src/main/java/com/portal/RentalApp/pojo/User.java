@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Component
 @Entity
 @Table(name="UserTable")
 public class User {

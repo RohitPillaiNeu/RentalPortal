@@ -1,4 +1,4 @@
-package com.portal.RentalApp;
+package portal.src.main.java.com.portal.RentalApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
