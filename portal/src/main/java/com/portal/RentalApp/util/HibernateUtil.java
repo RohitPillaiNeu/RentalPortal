@@ -9,6 +9,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.springframework.stereotype.Component;
 
 import com.portal.RentalApp.pojo.User;
+import com.portal.RentalApp.pojo.Posting;
 
 @Component
 public class HibernateUtil {
@@ -37,6 +38,7 @@ public class HibernateUtil {
 
 	                
 	                configuration.addAnnotatedClass(User.class);
+	                configuration.addAnnotatedClass(Posting.class);
 	                
 	                
 
