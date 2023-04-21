@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +30,7 @@ public class Posting {
 	@Column(name = "isAvailable")
 	private boolean isAvailable;
 	
-	@ManyToOne
+	@ManyToOne	
     @JoinColumn(name = "fkuser")
     private User user;
 	

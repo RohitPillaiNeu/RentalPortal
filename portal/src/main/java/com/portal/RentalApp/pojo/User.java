@@ -31,9 +31,9 @@ public class User {
 	@Column(name = "isAdmin")
 	private boolean isAdmin;
 
-	@OneToMany(mappedBy = "User")
-    private List<Posting> employees = new ArrayList<>();
-	
+	@OneToMany(mappedBy = "user")
+    private List<Posting> postings = new ArrayList<>();
+		
 	public User() {}
 
 
