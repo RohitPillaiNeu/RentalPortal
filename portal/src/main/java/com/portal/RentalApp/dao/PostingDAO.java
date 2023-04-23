@@ -38,6 +38,17 @@ public class PostingDAO extends DAO{
 		return null;
 	}
     
+    public List<Posting> getPosting() {
+		try {
+			List<Posting>  postings= getSession().createQuery("FROM Posting", Posting.class).getResultList();
+			return postings;
+		} catch (HibernateException e) {
+			rollback();
+            System.out.println("Exception: " + e.getMessage());
+		}
+		return null;
+	}
+    
     public Posting getPosting(int postId) {
 		try {
 			Posting posting = (Posting) getSession().get(Posting.class, postId);

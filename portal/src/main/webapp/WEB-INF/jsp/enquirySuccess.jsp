@@ -10,28 +10,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.portal.RentalApp.pojo.Posting" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Property listings</title>
+<title>Enquiry sent</title>
 </head>
 <body>
-
-	Our available listings:
-	<% 
-  		List<Posting> postList = (List<Posting>) request.getAttribute("postings");
-	%>
-
-<%
-  for (Posting post : postList) {
-%>
-    <a href="viewlisting?key=<%=post.getPostid()%>"><%=post.getName()%></a></br>
-<%
-  }
-%>
 	
+	We have received your enquiry for and will get back to you as soon as we can!
+	</br>
+	<a href="listings">Go back</a>
 </body>
 </html>

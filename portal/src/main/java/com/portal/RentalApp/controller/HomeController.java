@@ -42,5 +42,4 @@ public class HomeController {
 		request.setAttribute("userName", userName);
 		return new ModelAndView("userHome");
 	}
-	
 }

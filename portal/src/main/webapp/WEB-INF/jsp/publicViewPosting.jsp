@@ -17,12 +17,6 @@
 </head>
 <body>
 
-<%-- 	user view - Welcome ${requestScope.userName} --%>
-	
-<!-- 	<a href="announcement">Message/announcements</a> </br> -->
-<!-- 	<a href="tickets">Create/manage Tickets</a> </br> -->
-
-<%-- <% if( ((Posting)request.getAttribute("posting")).isAvailable() == true ) %>> --%>
 ${requestScope.posting}				</br>
 
 ${requestScope.posting.name}		</br>

@@ -1,5 +1,9 @@
 package com.portal.RentalApp.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,6 +40,10 @@ public class Posting {
 	@ManyToOne	
     @JoinColumn(name = "fkuser")
     private User user;
+	
+
+	@OneToMany(mappedBy = "posting", cascade = CascadeType.ALL)
+    private List<Enquiry> enquiries = new ArrayList<>();
 	
 	public Posting() {}
 
@@ -108,6 +117,14 @@ public class Posting {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Enquiry> getEnquiries() {
+		return enquiries;
+	}
+
+	public void setEnquiries(List<Enquiry> enquiries) {
+		this.enquiries = enquiries;
 	}
 	
 	

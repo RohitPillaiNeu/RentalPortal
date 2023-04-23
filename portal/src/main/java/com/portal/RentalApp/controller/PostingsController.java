@@ -43,12 +43,6 @@ public class PostingsController {
 		}		
 	}
 	
-	@GetMapping("/listing")
-	public ModelAndView getListings(HttpServletRequest request) {
-		
-		return new ModelAndView("listingsPublic");
-	}
-	
 	@GetMapping("/viewpost*")
 	public ModelAndView getAdminViewPost(HttpServletRequest request) {
 		
@@ -58,11 +52,13 @@ public class PostingsController {
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
 	        request.setAttribute("posting", posting);
 		}
-		
+
+        request.setAttribute("key", postid);
 		return new ModelAndView("adminViewPosting");
 	}
 	
-	@PostMapping("/viewpost?key=*&toggle=*")
+	
+	@PostMapping("/viewpost?*toggle=*")
 	public ModelAndView ToggleAvailability(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
