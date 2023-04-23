@@ -15,8 +15,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Create Edit Posting</title>
 </head>
-<body>
-	<form action="editpost" method="post" enctype="multipart/form-data">
+<body>	
+	<form action="editpost?action=create" method="post" enctype="multipart/form-data">
 			Listing Title : <input type="text" name="name" value="${requestScope.name}" required/> <br />
 			Description:<input type="text" name="description" value="${requestScope.description}" required> <br />
 			Address:<input type="text" name="address" value="${requestScope.address}" required> <br />

@@ -37,4 +37,37 @@ public class PostingDAO extends DAO{
 		}
 		return null;
 	}
+    
+    public Posting getPosting(int postId) {
+		try {
+			Posting posting = (Posting) getSession().get(Posting.class, postId);
+			return posting;
+		} catch (HibernateException e) {
+			rollback();
+            System.out.println("Exception: " + e.getMessage());
+		}
+		return null;
+	}
+
+	public void update(Posting posting) {
+		try {
+			begin();
+			getSession().update(posting);
+			commit();
+		} catch (HibernateException e) {
+			rollback();
+			e.printStackTrace();
+		}
+	}
+
+	public void delete(Posting posting) {
+		try {
+			begin();
+			getSession().delete(posting);
+			commit();
+		} catch (HibernateException e) {
+			rollback();
+			e.printStackTrace();
+		}
+	}
 }
