@@ -13,15 +13,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin home</title>
+<title>Create Edit Posting</title>
 </head>
 <body>
-
-	admin view - Welcome ${requestScope.userName}
-	
-	<a href="post">Manage property postings</a> </br>
-	<a href="announcement">Send message/announcements</a> </br>
-	<a href="tickets">User Tickets</a> </br>
-	
+		
 </body>
 </html>

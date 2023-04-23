@@ -31,10 +31,20 @@ public class User {
 	@Column(name = "isAdmin")
 	private boolean isAdmin;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Posting> postings = new ArrayList<>();
 		
 	public User() {}
+
+
+	public List<Posting> getPostings() {
+		return postings;
+	}
+
+
+	public void setPostings(List<Posting> postings) {
+		this.postings = postings;
+	}
 
 
 	public int getUserId() {

@@ -17,6 +17,9 @@
 </head>
 <body>
 
-	user view
+	user view - Welcome ${requestScope.userName}
+	
+	<a href="announcement">Message/announcements</a> </br>
+	<a href="tickets">Create/manage Tickets</a> </br>
 </body>
 </html>

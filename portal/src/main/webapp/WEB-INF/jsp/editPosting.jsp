@@ -13,15 +13,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin home</title>
+<title>Create Edit Posting</title>
 </head>
 <body>
-
-	admin view - Welcome ${requestScope.userName}
-	
-	<a href="listings">Manage property postings</a> </br>
-	<a href="announcement">Send message/announcements</a> </br>
-	<a href="tickets">User Tickets</a> </br>
-	
+	<form action="editpost" method="post" enctype="multipart/form-data">
+			Listing Title : <input type="text" name="name" value="${requestScope.name}" required/> <br />
+			Description:<input type="text" name="description" value="${requestScope.description}" required> <br />
+			Address:<input type="text" name="address" value="${requestScope.address}" required> <br />
+			Pin-code:<input type="text" name="pincode" value="${requestScope.pincode}" > <br />
+			Cost:<input type="number" name="cost" value="${requestScope.cost}"> <br />
+			
+			
+			Apartment available? 
+<!-- 			<c:choose> -->
+<%--    				<c:when test="${requestScope.isAvailable}"> --%>
+<!-- 					<input type="checkbox" name="isAvailable" value="true" checked> -->
+<!--    				</c:when> -->
+<!-- 	    		<c:otherwise> -->
+<!-- 					<input type="checkbox" name="isAvailable" value="true"> -->
+<!--     			</c:otherwise> -->
+<!-- 			</c:choose> -->
+			<br />
+			<br />
+			
+			
+			Upload an image of the apartment
+			<input type="file" name="image">
+			<br /> <br /> <input type="submit" />		
+	</form>		
 </body>
 </html>

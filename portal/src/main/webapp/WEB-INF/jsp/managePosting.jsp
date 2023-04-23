@@ -19,10 +19,10 @@
 
 	${requestScope.userName}
 	
-	<a href="post?action=edit">Create a new posting</a> </br>
+	<a href="editpost">Create a new posting</a> </br>
 	
 <!-- 	List of postings -->
-
+	${requestScope.postings}
 <!-- 	List of postings END -->
 
 </body>

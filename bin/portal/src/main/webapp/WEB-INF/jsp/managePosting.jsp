@@ -13,15 +13,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin home</title>
+<title>Manage Posting</title>
 </head>
 <body>
 
-	admin view - Welcome ${requestScope.userName}
+	${requestScope.userName}
 	
-	<a href="post">Manage property postings</a> </br>
-	<a href="announcement">Send message/announcements</a> </br>
-	<a href="tickets">User Tickets</a> </br>
+	<a href="editpost">Create a new posting</a> </br>
 	
+<!-- 	List of postings -->
+
+<!-- 	List of postings END -->
+
 </body>
 </html>

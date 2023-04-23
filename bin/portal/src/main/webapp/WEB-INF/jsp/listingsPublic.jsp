@@ -19,7 +19,7 @@
 
 	admin view - Welcome ${requestScope.userName}
 	
-	<a href="post">Manage property postings</a> </br>
+	<a href="listings">Manage property postings</a> </br>
 	<a href="announcement">Send message/announcements</a> </br>
 	<a href="tickets">User Tickets</a> </br>
 	
