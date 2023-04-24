@@ -46,7 +46,6 @@ Availability: ${requestScope.posting.isAvailable()}	</br>
 
 
 <!-- Enquiries -->
-
 <% 
   		List<Enquiry> enquiryList = (List<Enquiry>) request.getAttribute("enquiries");
 	%>
@@ -54,7 +53,13 @@ Availability: ${requestScope.posting.isAvailable()}	</br>
 <%
   for (Enquiry enquiry : enquiryList) {
 %>
-<%--     <a href="viewpost?key=<%=post.getPostid()%>"><%=post.getName()%></a></br> --%>
+	<div>
+		<span><%= enquiry.getName() %></span> &nbsp
+		<span><%= enquiry.getPhoneNo() %></span> &nbsp
+		<span><%= enquiry.getEmail() %></span> </br>
+		<span><%= enquiry.getComment() %></span>
+	</div>
+	 </br> </br>
 <%
   }
 %>
