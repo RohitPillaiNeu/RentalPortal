@@ -28,7 +28,7 @@
 <%
   for (Posting post : postList) {
 %>
-    <a href="viewlisting?key=<%=post.getPostid()%>"><%=post.getName()%></a></br>
+    <a href="viewListing?key=<%=post.getPostid()%>"><%=post.getName()%></a></br>
 <%
   }
 %>

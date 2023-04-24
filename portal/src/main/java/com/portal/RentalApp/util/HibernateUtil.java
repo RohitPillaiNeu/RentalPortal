@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.portal.RentalApp.pojo.User;
 import com.portal.RentalApp.pojo.Posting;
+import com.portal.RentalApp.pojo.Enquiry;
 
 @Component
 public class HibernateUtil {
@@ -39,6 +40,7 @@ public class HibernateUtil {
 	                
 	                configuration.addAnnotatedClass(User.class);
 	                configuration.addAnnotatedClass(Posting.class);
+	                configuration.addAnnotatedClass(Enquiry.class);
 	                
 	                
 

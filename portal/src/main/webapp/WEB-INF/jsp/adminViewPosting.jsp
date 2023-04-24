@@ -10,6 +10,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.portal.RentalApp.pojo.Enquiry" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,8 +45,19 @@ Availability: ${requestScope.posting.isAvailable()}	</br>
 <a href="viewpost?key=${requestScope.posting.postid}&delete=true">Remove post</a></br></br>
 
 
-<!-- User forms -->
+<!-- Enquiries -->
 
+<% 
+  		List<Enquiry> enquiryList = (List<Enquiry>) request.getAttribute("enquiries");
+	%>
+
+<%
+  for (Enquiry enquiry : enquiryList) {
+%>
+<%--     <a href="viewpost?key=<%=post.getPostid()%>"><%=post.getName()%></a></br> --%>
+<%
+  }
+%>
 
 </body>
 </html>

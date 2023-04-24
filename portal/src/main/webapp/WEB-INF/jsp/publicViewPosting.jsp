@@ -31,9 +31,18 @@ ${requestScope.posting.cost}		</br>
 
 Availability: ${requestScope.posting.isAvailable()}	</br>
 &nbsp 
-<a href="viewpost?key=${requestScope.posting.postid}&toggle=true">Toggle availability</a></br>
-</br>
-<a href="viewpost?key=${requestScope.posting.postid}&delete=true">Remove post</a></br></br>
+
+
+
+<form action="enquiry" method="post">
+			<input type="hidden" name="postingid" value="${requestScope.posting.postid}"> <br />
+			Name : <input type="text" name="name" required/> <br />
+			Mobile No:<input type="number" name="phoneNo" required> <br />
+			Email ID:<input type="text" name="email" required> <br />
+			Additional enquiry/comment<input type="text" name="comment" > <br />
+			
+			<br /> <br /> <input type="submit" />		
+</form>	
 
 
 <!-- User forms -->

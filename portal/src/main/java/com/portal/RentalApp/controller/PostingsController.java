@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.portal.RentalApp.dao.EnquiryDAO;
 import com.portal.RentalApp.dao.PostingDAO;
 import com.portal.RentalApp.dao.UserDAO;
 import com.portal.RentalApp.pojo.User;
+import com.portal.RentalApp.pojo.Enquiry;
 import com.portal.RentalApp.pojo.Posting;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +24,8 @@ public class PostingsController {
 	UserDAO userDAO;
 	@Autowired
 	PostingDAO postingDAO;
+	@Autowired
+	EnquiryDAO enquiryDAO;
 	
 	@GetMapping("/post")
 	public ModelAndView handleGet(HttpServletRequest request) {
@@ -51,6 +55,9 @@ public class PostingsController {
 		{
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
 	        request.setAttribute("posting", posting);
+	        
+	        List<Enquiry> enquiries = enquiryDAO.getEnquiries(Integer.parseInt(postid));
+	        request.setAttribute("enquiries", enquiries);
 		}
 
         request.setAttribute("key", postid);
@@ -83,39 +90,4 @@ public class PostingsController {
 		}
 		return new ModelAndView("redirect:/post");
 	}
-	
-//	@GetMapping("/editpost") 
-//	public ModelAndView getEditPost(HttpServletRequest request) {
-//		
-//		return new ModelAndView("editPosting");
-//	}
-	
-//	@PostMapping("/editpost")
-//	public ModelAndView postEditPost(HttpServletRequest request, @RequestParam("image") MultipartFile file) {
-//		
-//		String name  = (String) request.getParameter("name");
-//		String description = (String) request.getParameter("description");
-//		String address = (String) request.getParameter("address");
-//		String pincode = (String) request.getParameter("pincode");
-//		double cost = 0;
-//		if(request.getParameter("cost") != null)
-//			cost = Double.parseDouble(request.getParameter("cost"));
-//		
-//
-//		String userName = (String) request.getSession().getAttribute("loggedUser");
-//		User currentUser = userDAO.getUser(userName);
-//		
-//		Posting adminPosting = new Posting();
-//		adminPosting.setName(name);
-//		adminPosting.setDescription(description);
-//		adminPosting.setAddress(address);
-//		adminPosting.setPincode(pincode);
-//		adminPosting.setCost(cost);
-//		adminPosting.setUser(currentUser);
-//		adminPosting.setAvailable(true);
-//		
-//		postingDAO.savePosting(adminPosting);
-//		
-//		return new ModelAndView("redirect:/post");
-//	}
 }
