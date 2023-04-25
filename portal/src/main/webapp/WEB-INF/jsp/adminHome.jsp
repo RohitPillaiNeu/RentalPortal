@@ -21,7 +21,7 @@
 	
 	<a href="post">Manage property postings</a> </br>
 	<a href="announcement">Send message/announcements</a> </br>
-	<a href="tickets">User Tickets</a> </br>
+	<a href="ticket">User Tickets</a> </br>
 	
 </body>
 </html>

@@ -25,7 +25,6 @@ public class EnquiryDAO extends DAO {
 	
 	public List<Enquiry> getEnquiries(int postid) {
 		try {
-			begin();
 //			String hql = "FROM Enquiry e where e.posting.postid = :postid";
 //			Query<Enquiry> query = getSession().createQuery(hql, Enquiry.class);
 //			query.setParameter("postid", postid);

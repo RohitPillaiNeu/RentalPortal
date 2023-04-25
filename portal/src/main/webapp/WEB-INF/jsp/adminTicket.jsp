@@ -20,6 +20,6 @@
 	user view - Welcome ${requestScope.userName}
 	
 	<a href="announcement">Message/announcements</a> </br>
-	<a href="ticket">Create/manage Tickets</a> </br>
+	<a href="tickets">Create/manage Tickets</a> </br>
 </body>
 </html>

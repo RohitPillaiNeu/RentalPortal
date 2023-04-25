@@ -33,7 +33,7 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Posting> postings = new ArrayList<>();
-		
+	
 	public User() {}
 
 

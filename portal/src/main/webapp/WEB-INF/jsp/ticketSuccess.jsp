@@ -13,13 +13,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>User home</title>
+<title>Ticket sent</title>
 </head>
 <body>
-
-	user view - Welcome ${requestScope.userName}
 	
-	<a href="announcement">Message/announcements</a> </br>
-	<a href="ticket">Create/manage Tickets</a> </br>
+	We have received your ticket and will get resolve as soon as we can!
+	</br>
+	<a href="ticket">Go back</a>
 </body>
 </html>

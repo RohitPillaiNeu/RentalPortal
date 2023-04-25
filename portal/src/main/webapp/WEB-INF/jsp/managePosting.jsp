@@ -26,7 +26,6 @@
 	<a href="editpost?action=create">Create a new posting</a> </br>
 	
 <!-- 	List of postings -->
-	${requestScope.postings}
 	<% 
   		List<Posting> postList = (List<Posting>) request.getAttribute("postings");
 	%>

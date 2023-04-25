@@ -17,7 +17,7 @@
 </head>
 <body>
 	
-	We have received your enquiry for and will get back to you as soon as we can!
+	We have received your enquiry form and will get back to you as soon as we can!
 	</br>
 	<a href="listings">Go back</a>
 </body>
