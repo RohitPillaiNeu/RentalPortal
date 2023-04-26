@@ -47,7 +47,7 @@ public class PostingsController {
 		}		
 	}
 	
-	@GetMapping("/viewpost*")
+	@GetMapping("/viewpost")
 	public ModelAndView getAdminViewPost(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
@@ -65,7 +65,7 @@ public class PostingsController {
 	}
 	
 	
-	@PostMapping("/viewpost?*toggle=*")
+	@GetMapping("/togglepost")
 	public ModelAndView ToggleAvailability(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
@@ -79,10 +79,11 @@ public class PostingsController {
 		return new ModelAndView("redirect:/viewpost?key=" + postid);
 	}
 	
-	@PostMapping("/viewpost?key=*&delete=*")
+	@GetMapping("/deletepost")
 	public ModelAndView DeletePost(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
+		System.out.println(postid);
 		if(postid != null)
 		{
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
