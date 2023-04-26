@@ -13,6 +13,7 @@ import com.portal.RentalApp.pojo.Posting;
 import com.portal.RentalApp.pojo.Enquiry;
 import com.portal.RentalApp.pojo.Ticket;
 import com.portal.RentalApp.pojo.TicketConversation;
+import com.portal.RentalApp.pojo.Announcement;
 
 @Component
 public class HibernateUtil {
@@ -45,6 +46,7 @@ public class HibernateUtil {
 	                configuration.addAnnotatedClass(Enquiry.class);
 	                configuration.addAnnotatedClass(Ticket.class);
 	                configuration.addAnnotatedClass(TicketConversation.class);
+	                configuration.addAnnotatedClass(Announcement.class);
 	                
 	                
 

@@ -27,8 +27,18 @@ public class TicketDAO extends DAO{
 	public List<Ticket> getUserTickets(int userid, boolean isResolved) {
 		try {
 			Query<Ticket> query = getSession().createQuery("SELECT t FROM Ticket t WHERE t.user.id = :userId AND t.isResolved = :isResolved", Ticket.class);
-			query.setParameter("userId", userid);
-			query.setParameter("isResolved", isResolved);
+			
+			if(userid == 0 )
+			{
+				// admin login
+				query = getSession().createQuery("SELECT t FROM Ticket t WHERE t.isResolved = :isResolved", Ticket.class);
+				query.setParameter("isResolved", isResolved);
+			}
+			else {
+				query.setParameter("userId", userid);
+				query.setParameter("isResolved", isResolved);
+			}
+			
 			List<Ticket> lisTickets = query.getResultList();
 			return lisTickets;
 		} catch (HibernateException e) {

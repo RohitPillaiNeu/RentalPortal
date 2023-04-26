@@ -55,6 +55,12 @@ public class TicketController {
 	}
 	
 	public ModelAndView getAdminTicket(HttpServletRequest request, User currentUser) {
+		
+
+		List<Ticket> openTickets = ticketDAO.getUserTickets(0, false);
+		List<Ticket> closedTickets = ticketDAO.getUserTickets(0, true);
+        request.setAttribute("openTickets", openTickets);
+        request.setAttribute("closedTickets", closedTickets);
 		return new ModelAndView("adminTicket");
 	}
 	
