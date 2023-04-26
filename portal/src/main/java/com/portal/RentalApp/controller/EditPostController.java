@@ -27,15 +27,21 @@ public class EditPostController {
 	public ModelAndView handleGet(HttpServletRequest request) {
 		
 		String action = request.getParameter("action");
-		String postId = request.getParameter("postId");
+		String postId = request.getParameter("postid");
 		boolean isCreate = false;
 		if(action.equalsIgnoreCase("create") || postId == null) {
 			isCreate = true;
 		}
 		else {
 			isCreate = false;
-			
-			
+			Posting post = postingDAO.getPosting(Integer.parseInt(postId));
+			request.setAttribute("postid", postId);
+			request.setAttribute("name", post.getName());
+			request.setAttribute("description", post.getDescription());
+			request.setAttribute("address", post.getAddress());
+			request.setAttribute("pincode", post.getPincode());
+			request.setAttribute("cost", post.getCost());
+			request.setAttribute("isAvailable", post.isAvailable());
 		}
 		request.setAttribute("isCreate",isCreate);
 		return new ModelAndView("editPosting");
@@ -44,10 +50,14 @@ public class EditPostController {
 	@PostMapping("/editpost")
 	public ModelAndView postEditPost(HttpServletRequest request, @RequestParam("image") MultipartFile file) {
 		
+		
+		String postid  = (String) request.getParameter("postid");
 		String name  = (String) request.getParameter("name");
 		String description = (String) request.getParameter("description");
 		String address = (String) request.getParameter("address");
 		String pincode = (String) request.getParameter("pincode");
+		String isAvailable = (String) request.getParameter("priority");
+		
 		double cost = 0;
 		if(request.getParameter("cost") != null)
 			cost = Double.parseDouble(request.getParameter("cost"));
@@ -57,6 +67,10 @@ public class EditPostController {
 		User currentUser = userDAO.getUser(userName);
 		
 		Posting adminPosting = new Posting();
+		System.out.println(postid);
+		if(postid != null)
+			adminPosting = postingDAO.getPosting(Integer.parseInt(postid));
+
 		adminPosting.setName(name);
 		adminPosting.setDescription(description);
 		adminPosting.setAddress(address);
@@ -64,8 +78,13 @@ public class EditPostController {
 		adminPosting.setCost(cost);
 		adminPosting.setUser(currentUser);
 		adminPosting.setAvailable(true);
+		if(isAvailable == "isAvailable")
+			adminPosting.setAvailable(false);
 		
 		postingDAO.savePosting(adminPosting);
+		
+		if(postid != null)
+			return new ModelAndView("redirect:/viewpost?key=" + postid);
 		
 		return new ModelAndView("redirect:/post");
 	}
