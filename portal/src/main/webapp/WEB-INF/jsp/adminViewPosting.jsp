@@ -42,8 +42,8 @@ Availability: ${requestScope.posting.isAvailable()}	</br>
 &nbsp 
 <a href="viewpost?key=${requestScope.posting.postid}&toggle=true">Toggle availability</a></br>
 </br>
-<a href="viewpost?key=${requestScope.posting.postid}&delete=true">Remove post</a></br></br>
-
+<a href="viewpost?key=${requestScope.posting.postid}&delete=true">Remove post</a></br>
+<a href="exportenquiry?key=${requestScope.posting.postid}">Export all enquiries</a></br></br>
 
 <!-- Enquiries -->
 <% 
