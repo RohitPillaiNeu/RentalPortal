@@ -33,6 +33,12 @@ public class LoginController {
 		return new ModelAndView("login");
 	}
 	
+	@GetMapping("/logout")
+	public ModelAndView logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return new ModelAndView("logout");
+	}
+	
 	@PostMapping("/login")
 	public ModelAndView handlePost(HttpServletRequest request) {
 

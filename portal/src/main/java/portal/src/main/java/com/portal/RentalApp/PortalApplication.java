@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.portal.RentalApp.dao","com.portal.RentalApp.pojo","com.portal.RentalApp.controller"})
+@ComponentScan({"com.portal.RentalApp.dao","com.portal.RentalApp.pojo","com.portal.RentalApp.controller", "com.portal.RentalApp.config"})
 public class PortalApplication {
 
 	public static void main(String[] args) {
