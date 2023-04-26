@@ -1,11 +1,3 @@
-<!-- login-view page -->
-
-<%-- ${user.userId} --%>
-<%-- ${user.name} --%>
-<%-- ${user.userName} --%>
-<%-- ${user} --%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,8 +9,13 @@
 </head>
 <body>
 	
-	We have received your ticket and will get resolve as soon as we can!
-	</br>
-	<a href="ticket">Go back</a>
+	<div style="padding:30px 60px; font-family: verdana;">
+			
+		<div style="padding:20px; background-color: #9bee88; text-align: center;"><h2>We have received your ticket and will get resolve as soon as we can!</h2></div></br>
+		
+		<div style="padding:20px; text-align: center; margin-bottom: 30px; background-color: #e6e6e6b0;">
+			<a href="ticket">Go back</a>
+		</div></br>
+	</div>
 </body>
 </html>

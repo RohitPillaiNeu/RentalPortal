@@ -21,14 +21,6 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	public ModelAndView handleGet(HttpServletRequest request) {
-//		UserDAO userdao = new UserDAO();
-//		User user = new User();
-//        user.setAdmin(true);
-//        user.setName("User2");
-//        user.setUserName("user@2");
-//        user.setUserPassword("user@2");
-//        
-//        userdao.saveUser(user);
 		request.getSession().invalidate();
 		return new ModelAndView("login");
 	}
@@ -42,31 +34,12 @@ public class LoginController {
 	@PostMapping("/login")
 	public ModelAndView handlePost(HttpServletRequest request) {
 
-//      request.getSession().setAttribute("user", user);
-//		
-//		UserDAO userdao = new UserDAO();
-//		User user = new User();
-//        user.setAdmin(true);
-//        user.setName("User1");
-//        user.setUserName("user@1");
-//        user.setUserPassword("user@1");
-//        
-//        userdao.saveUser(user);
-        
-//        request.getSession().setAttribute("user", user); 
-//		return "AdminHome-view.jsp";
-
 		String userName  = (String) request.getParameter("userName");
 		String password = (String) request.getParameter("userPassword");
 		User checkUser = userDAO.getUser(userName);
 		
+		System.out.println(checkUser.getName());
 		if(checkUser != null && checkUser.getUserPassword().equals(password)) {
-//	        request.setAttribute("userid", checkUser.getUserId());
-//	        request.setAttribute("name", checkUser.getName());
-//	        request.setAttribute("username", checkUser.getUserName());
-//	        request.setAttribute("password", checkUser.getUserPassword());
-//	        request.setAttribute("admin", checkUser.isAdmin());
-			
 			request.getSession().setAttribute("loggedUser", userName);
 			return new ModelAndView("redirect:/home");
 		}

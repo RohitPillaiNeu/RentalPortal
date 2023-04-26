@@ -8,6 +8,14 @@
 <title>Error</title>
 </head>
 <body>
-	Its seems invalid url being accessed or we ran into an unexpected error <a href="home">Go back</a>
+   <div style="padding:30px 60px; font-family: verdana;">
+			
+		<div style="padding:20px; background-color: #ee8888; text-align: center;"><h2>Its seems invalid url being accessed or we ran into an unexpected error</h2></div></br>
+		
+		<div style="padding:20px; text-align: center; margin-bottom: 30px; background-color: #e6e6e6b0;">
+			<a href="home">Go back</a>
+		</div></br>
+	</div>
 </body>
 </html>
+	

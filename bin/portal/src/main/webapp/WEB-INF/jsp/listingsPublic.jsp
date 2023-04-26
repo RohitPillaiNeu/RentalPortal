@@ -10,18 +10,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.portal.RentalApp.pojo.Posting" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin home</title>
+<title>Property listings</title>
 </head>
 <body>
 
-	admin view - Welcome ${requestScope.userName}
-	
-	<a href="listings">Manage property postings</a> </br>
-	<a href="announcement">Send message/announcements</a> </br>
-	<a href="tickets">User Tickets</a> </br>
+	Our available listings:
+	<% 
+  		List<Posting> postList = (List<Posting>) request.getAttribute("postings");
+	%>
+
+<%
+  for (Posting post : postList) {
+%>
+    <a href="viewListing?key=<%=post.getPostid()%>"><%=post.getName()%></a></br>
+<%
+  }
+%>
 	
 </body>
 </html>

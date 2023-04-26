@@ -51,7 +51,7 @@ public class PostingsController {
 	public ModelAndView getAdminViewPost(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
-		if(postid != null)
+		if(postid != null && postid.length() > 0)
 		{
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
 	        request.setAttribute("posting", posting);
@@ -69,7 +69,7 @@ public class PostingsController {
 	public ModelAndView ToggleAvailability(HttpServletRequest request) {
 		
 		String postid  = request.getParameter("key");
-		if(postid != null)
+		if(postid != null && postid.length() > 0)
 		{
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
 			posting.setAvailable((!posting.isAvailable()));
@@ -84,7 +84,7 @@ public class PostingsController {
 		
 		String postid  = request.getParameter("key");
 		System.out.println(postid);
-		if(postid != null)
+		if(postid != null && postid.length() > 0)
 		{
 			Posting posting = postingDAO.getPosting(Integer.parseInt(postid));
 			postingDAO.delete(posting);

@@ -61,6 +61,14 @@ public class TicketController {
 		List<Ticket> closedTickets = ticketDAO.getUserTickets(0, true);
         request.setAttribute("openTickets", openTickets);
         request.setAttribute("closedTickets", closedTickets);
+        
+//        // Stats
+//        request.setAttribute("openCount", ticketDAO.getOpenTicketCount());
+//        request.setAttribute("normalCount", ticketDAO.getOpenTicketCount());
+//        request.setAttribute("highCount", ticketDAO.getOpenTicketCount());
+//        request.setAttribute("urgentCount", ticketDAO.getOpenTicketCount());
+//        request.setAttribute("closedCount", ticketDAO.getOpenTicketCount());
+//		
 		return new ModelAndView("adminTicket");
 	}
 	
@@ -102,6 +110,13 @@ public class TicketController {
         request.setAttribute("ticket", ticket);
         request.setAttribute("isAdmin", currentUser.isAdmin());
         request.setAttribute("conversations", conversations);
+        
+        if(ticket.getPriority() == 1)
+        	request.setAttribute("priority", "Urgent/Critical");
+        else if(ticket.getPriority() == 2)
+        	request.setAttribute("priority", "High");
+        else if(ticket.getPriority() == 3)
+        	request.setAttribute("priority", "Normal");
 
 		return new ModelAndView("viewTicket");
 	}

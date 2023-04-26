@@ -68,7 +68,7 @@ public class EditPostController {
 		
 		Posting adminPosting = new Posting();
 		System.out.println(postid);
-		if(postid != null)
+		if(postid != null && postid.length() > 0)
 			adminPosting = postingDAO.getPosting(Integer.parseInt(postid));
 
 		adminPosting.setName(name);

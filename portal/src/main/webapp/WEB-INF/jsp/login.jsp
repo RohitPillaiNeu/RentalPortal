@@ -5,28 +5,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Property Portal</title>
+<title>Login</title>
 </head>
 <body>
-
-		<form action="login" method="post">
-			Username : <input type="text" name="userName" value="${requestScope.userid}" required/> <br />
-			Password:<input type="password" name="userPassword" required>
+		<div style="padding:30px 60px; font-family: verdana;">
 			
-			<br /> <br /> <input type="submit" />
+			<div style="padding:20px; background-color: #e6e6e6;"><h2>Login to portal</h2></div></br>
+			<form action="login" method="post">
+				Username : 
+				<br />
+				<input type="text" name="userName" value="${requestScope.userid}" required/> 
+				<br />
+				Password:
+				<br />
+				<input type="password" name="userPassword" required>
 			
-			<br />
-			<c:if test="${requestScope.error}">
-         		Invalid UserID and Password
-      		</c:if>
+				<br /> <br /> <input type="submit" value="Login"/>
+			
+				<br />
+				<% if(request.getAttribute("error") != null && (boolean)request.getAttribute("error") == true) {%>
+         			Invalid UserID and Password
+				<% } %>
       		
       		
-			${requestScope.error} </br>
-			${requestScope.name} </br>
-			${requestScope.username} </br>
-			${requestScope.password} </br>
-			${requestScope.admin} </br>
+				${requestScope.error} </br>
+				${requestScope.name} </br>
+				${requestScope.username} </br>
+				${requestScope.password} </br>
+				${requestScope.admin} </br>
 			
-		</form>
+			</form>
+		</div>
 </body>
 </html>

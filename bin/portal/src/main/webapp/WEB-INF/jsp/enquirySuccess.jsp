@@ -13,15 +13,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin home</title>
+<title>Enquiry sent</title>
 </head>
 <body>
-
-	admin view - Welcome ${requestScope.userName}
 	
-	<a href="post">Manage property postings</a> </br>
-	<a href="announcement">Send message/announcements</a> </br>
-	<a href="ticket">User Tickets</a> </br>
-	
+	We have received your enquiry form and will get back to you as soon as we can!
+	</br>
+	<a href="listings">Go back</a>
 </body>
 </html>
