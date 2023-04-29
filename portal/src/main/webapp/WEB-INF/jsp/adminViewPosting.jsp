@@ -19,9 +19,9 @@
 			<div style="display: inline-block; float: right;"><a href="logout">Logout</a></div>
 		</div></br>
 
-		<% if(((Posting)request.getAttribute("posting")).isAvailable() == false) {%> 
+<%-- 		<% if(((Posting)request.getAttribute("posting")).isAvailable() == false) {%>  --%>
 			<div style="padding:20px; background-color: #f6a7a7;"><h3>This property is no longer available</h3></div></br>
-		<% } %>
+<%-- 		<% } %> --%>
 		
 		<div style="padding:20px; margin-bottom: 30px; background-color: #e6e6e6b0;">
 			<a href="togglepost?key=${requestScope.posting.postid}&toggle=true">Toggle availability</a></br>

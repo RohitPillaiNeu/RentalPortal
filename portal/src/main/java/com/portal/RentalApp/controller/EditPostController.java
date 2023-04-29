@@ -83,7 +83,8 @@ public class EditPostController {
 		
 		postingDAO.savePosting(adminPosting);
 		
-		if(postid != null)
+		System.out.println(postid);
+		if(postid != null && postid.length() > 0)
 			return new ModelAndView("redirect:/viewpost?key=" + postid);
 		
 		return new ModelAndView("redirect:/post");
